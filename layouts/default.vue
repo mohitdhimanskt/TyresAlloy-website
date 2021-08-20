@@ -1,26 +1,22 @@
 <template>
   <div>
-    // You call your new Header component
     <Header />
-
+    <Nav />
     <div class="uk-section uk-section-default">
       <div class="uk-container uk-container-large">
-
-        // This is where all yours pages will be
         <nuxt />
-
       </div>
     </div>
-
+    <Footer />
   </div>
 </template>
 
 <script>
 // Import your new Header component
-import Header from '~/components/Header.vue'
+import Header from "~/components/Header.vue";
 export default {
   components: {
     Header
   }
-}
+};
 </script>
