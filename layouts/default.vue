@@ -2,11 +2,12 @@
   <div>
     <!-- <Header /> -->
     <Nav />
-    <div class="uk-section uk-section-default">
-      <div class="uk-container uk-container-large">
+    <!-- <div class="uk-section uk-section-default">
+      <div class="uk-container uk-container-large"> -->
         <!-- <nuxt /> -->
-      </div>
-    </div>
+      <!-- </div>
+    </div> -->
+    <Ads />
     <Footer />
   </div>
 </template>
