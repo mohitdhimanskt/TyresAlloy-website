@@ -5,7 +5,7 @@
     </h3>
     <img
       class="h-48 sm:pl-20"
-      :src="`uriel-soberanes-MxVkWPiJALs-unsplash-removebg-preview.png`"
+      src="https://workspace.digital/wp-content/uploads/2019/08/uriel-soberanes-MxVkWPiJALs-unsplash.jpg"
       alt=""
     />
   </div>

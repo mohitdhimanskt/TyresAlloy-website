@@ -1,10 +1,12 @@
 <template>
   <div class="navbar flex text-white relative">
     <div class="nav-item-center flex space-x-6 sm:space-x-20 p-5 mx-auto">
-      <NuxtLink to="/">Home</NuxtLink>
+      <div class="name">
+      <NuxtLink to="/">Tyres&Alloy</NuxtLink>
+      </div>
       <NuxtLink to="/all">All</NuxtLink>
-      <NuxtLink to="/men">Men</NuxtLink>
-      <NuxtLink to="/women">Women</NuxtLink>
+      <NuxtLink to="/men">Car</NuxtLink>
+      <NuxtLink to="/women">Bike</NuxtLink>
     </div>
     <div class="cart fixed bottom-0 right-0 shadow-md m-3">
       <p class="p-1 cartCount text-xs absolute top-0 right-0">
@@ -47,5 +49,11 @@ export default {
 .cartCount {
   background: #000;
   border-radius: 30%;
+}
+.name{
+  margin-right: 700px;
+  font-style: italic;
+  font-size: 25px;
+  color: red;
 }
 </style>
