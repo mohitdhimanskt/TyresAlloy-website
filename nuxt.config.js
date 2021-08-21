@@ -26,21 +26,19 @@ export default {
   ],
 
   modules: [
-    // '@nuxtjs/font-awesome',"@nuxtjs/strapi",'@nuxtjs/axios','@nuxtjs/tailwindcss', '@nuxtjs/bulma'
-    ],
+     '@nuxtjs/font-awesome',"@nuxtjs/strapi",'@nuxtjs/axios','@nuxtjs/tailwindcss', '@nuxtjs/bulma'
+     ],
   
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  // buildModules: [
-  //   '@nuxtjs/font-awesome',"@nuxtjs/strapi",'@nuxtjs/axios','@nuxtjs/tailwindcss', '@nuxtjs/bulma'
-  // ],
+  buildModules: [
+
+  ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  // modules: [
-  //    '@nuxtjs/font-awesome',"@nuxtjs/strapi",'@nuxtjs/axios','@nuxtjs/tailwindcss',
-  // ],
+  
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

@@ -1,10 +1,10 @@
 <template>
   <div>
-    <Header />
+    <!-- <Header /> -->
     <Nav />
     <div class="uk-section uk-section-default">
       <div class="uk-container uk-container-large">
-        <nuxt />
+        <!-- <nuxt /> -->
       </div>
     </div>
     <Footer />

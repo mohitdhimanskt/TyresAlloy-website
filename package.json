@@ -15,15 +15,17 @@
     "@nuxtjs/font-awesome": "^1.0.4",
     "@nuxtjs/strapi": "^0.3.1",
     "@nuxtjs/tailwindcss": "^4.2.1",
+    "autoprefixer": "9",
     "axios": "^0.21.1",
     "bootstrap": "^5.1.0",
     "core-js": "^3.15.1",
     "font-awesome": "^4.7.0",
     "nuxt": "^2.15.7",
+    "postcss": "7",
     "postcss-loader": "^6.1.1",
     "set-getter": "^0.1.1",
     "strapi": "^3.6.7",
-    "tailwindcss": "^2.2.7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "uikit": "^3.7.2"
   },
   "devDependencies": {}
