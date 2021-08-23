@@ -15,7 +15,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["uikit/dist/css/uikit.min.css", "uikit/dist/css/uikit.css"],
+  // css: ["uikit/dist/css/uikit.min.css", "uikit/dist/css/uikit.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [{ src: "~/plugins/uikit.js", ssr: false }],
