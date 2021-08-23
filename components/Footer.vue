@@ -3,7 +3,8 @@
     <div class="new_footer_top">
       <div class="bike">
         <div class="row">
-          <div class="col-lg-3 col-md-6">
+          <div class="get">
+          <div class="col-lg-3 col-md-6 m-12">
             <div
               class="f_widget company_widget wow fadeInLeft"
               data-wow-delay="0.2s"
@@ -34,6 +35,8 @@
               </form>
             </div>
           </div>
+          </div>
+          <div class="set">
           <div class="col-lg-3 col-md-6">
             <div
               class="f_widget about-widget pl_70 wow fadeInLeft"
@@ -51,6 +54,8 @@
               </ul>
             </div>
           </div>
+          </div>
+          <div class="post">
           <div class="col-lg-3 col-md-6">
             <div
               class="f_widget about-widget pl_70 wow fadeInLeft"
@@ -68,6 +73,8 @@
               </ul>
             </div>
           </div>
+          </div>
+          <div class="request">
           <div class="col-lg-3 col-md-6">
             <div
               class="f_widget social-widget pl_70 wow fadeInLeft"
@@ -85,6 +92,7 @@
           </div>
         </div>
       </div>
+      </div>
       <div class="footer_bg">
         <div class="footer_bg_one"></div>
         <div class="footer_bg_two"></div>
@@ -100,8 +108,8 @@
           </div>
           <div class="col-lg-6 col-sm-5 text-right">
             <p>
-              Made with <i class="icon_heart"></i> in
-              <a href="#">Tyres&Alloy</a>
+              Made with <i class="icon_heart"></i> in Tyres&Alloy
+              <a href="#"></a>
             </p>
           </div>
         </div>
@@ -142,14 +150,30 @@ body {
   background: #fbfbfd;
 }
 
+.get{
+  margin-right: 943px;
+}
+.set{
+      margin-top: -200px;
+}
+
+.post {
+      margin-left: 550px;
+    margin-top: -252px;
+}
+
+.request {
+  margin-left: 1150px;
+    margin-top: -256px;
+}
 .new_footer_top {
   padding: 120px 0px 270px;
   position: relative;
   overflow-x: hidden;
 }
 .new_footer_area .footer_bottom {
-  padding-top: 5px;
-  padding-bottom: 50px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .footer_bottom {
   font-size: 14px;
@@ -299,6 +323,7 @@ h6 {
     no-repeat scroll center 0;
   width: 100%;
   height: 266px;
+  margin-bottom: -100px;
 }
 
 .new_footer_top .footer_bg .footer_bg_one {
