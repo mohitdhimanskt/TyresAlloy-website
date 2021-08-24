@@ -1,27 +1,26 @@
 <template>
   <div>
-    <!-- <Header /> -->
-    <Nav />
-    <div class="uk-section uk-section-default">
-      <div class="uk-container uk-container-large"> 
-         <nuxt /> 
-       </div>
-    </div> 
-   
-    <Ads />
+   <Nav></Nav> 
+
+    <Nuxt></Nuxt>
+
+  <Ads class="mx-auto sm:m-10"></Ads>
+    <Footer></Footer> -->
+
     <Footer />
   </div>
 </template>
 
 <script>
 // Import your new Header component
-import Header from "~/components/Header.vue";
+// import Header from "~/components/Header.vue";
 import Nav from "~/components/Nav.vue";
 import Footer from "~/components/Footer.vue";
+import Ads from "../components/Ads.vue";
 export default {
   components: {
-    Header,
     Nav,
+    Ads,
     Footer
   }
 };
