@@ -37,5 +37,16 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {
+    extend(config, ctx) {
+      config.module.rules.push({
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+         limit: 10000,
+        
+        }
+      })
+    }
+  }
 };

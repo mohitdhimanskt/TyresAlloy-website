@@ -4,7 +4,7 @@
       class="sm:grid grid-cols-2 justify-center shadow-lg items-center gap-3 m-5 md:m-5"
     >
       <div>
-        <img class="max-h-screen" :src="`${data.Image[0].url}`" />
+        <img class="max-h-screen" :src="`${product.Image.url}`" />
       </div>
       <div class="sm:m-3 md:m-5 p-3 sm:p-0">
         <p class="my-2"><span>Price: </span>{{ data.price | formatPrice }}</p>
@@ -14,7 +14,7 @@
           class="p-3 border border-solid border-t-0 border-l-0 border-r-0 border-b-1"
           type="number"
         />
-        <p class="my-2 text-sm">{{ data.description }}</p>
+        <p class="my-2 text-sm">{{ product.description }}</p>
         <button
           class="button--green my-2"
           @click="
@@ -32,14 +32,14 @@
 import { mapActions } from 'vuex'
 export default {
   name: 'Products',
-  props: ['data'],
+  props: ['product'],
   data() {
     return {
       cartItem: {
-        id: this.data.id,
-        name: this.data.name,
-        url: this.data.Image[0].url,
-        price: this.data.price,
+        id: this.product.id,
+        name: this.product.name,
+        url: this.product.Image.url,
+        price: this.product.price,
         quantity: 1,
       },
     }
@@ -49,7 +49,7 @@ export default {
     displayMessage() {
       this.$swal({
         title: 'Cart Updated!',
-        text: `${this.data.name} was added to your cart!`,
+        text: `${this.product.name} was added to your cart!`,
         icon: 'success',
         button: 'Ok',
       })

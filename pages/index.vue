@@ -4,7 +4,7 @@
     <!-- <Nav class="sticky top-0" /> -->
     <div class="sm:w-11/12 md:w-4/5 mx-auto">
       <h1 class="m-5 font-bold text-lg">Featured Products</h1>
-      <Featured class="mx-auto" :data="featuredProducts" />
+      <Featured class="mx-auto" :products="products" />
     </div>
     <!-- <Ads class="mx-auto sm:m-10"></Ads> -->
     <!-- <NewsLetter class="mx-auto" /> -->
@@ -18,11 +18,10 @@ export default {
   components: { Featured },
  async asyncData({ $strapi }) {
    try {
-   let product = await $strapi.find("data");
-    console.log(data)
+   let products = await $strapi.find("products");
+    console.log(products)
     return {
-     data
-    };
+     products    };
     }catch (e){
       console.log(e)
     }
