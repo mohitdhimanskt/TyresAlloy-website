@@ -7,7 +7,7 @@
   <Ads class="mx-auto sm:m-10"></Ads>
     <Footer></Footer> -->
 
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 

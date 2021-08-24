@@ -29,8 +29,8 @@
 </template>
 <script>
 export default {
-  name: 'Featured',
-  props: ['data'],
-}
+  name: "Featured",
+  props: ["data"]
+};
 </script>
 <style scoped></style>
