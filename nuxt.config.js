@@ -1,4 +1,9 @@
+const strapiBaseUri = process.env.API_URL || "http://localhost:1337";
 export default {
+  target: "static",
+  env: {
+    strapiBaseUri,
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "frontend",
@@ -24,7 +29,7 @@ export default {
     "@nuxtjs/font-awesome",
     "@nuxtjs/strapi",
     "@nuxtjs/axios",
-    "@nuxtjs/tailwindcss",
+    "@nuxtjs/tailwindcss",  
     "@nuxtjs/bulma"
   ],
 
