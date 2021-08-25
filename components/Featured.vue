@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div class="featured">
+      <div class="bdr-thin"></div>
+      <div>
+      <span>HOT   SELLING  WHEELS</span>
+    </div>
+    </div>
     <div
       class="sm:grid sm:grid-cols-3 md:grid-cols-3 gap-6 justify-center items-center"
     >
@@ -44,4 +50,16 @@ export default {
   }
 };
 </script>
-<style scoped></style>
+<style scoped>
+.featured {
+  font-size: 40px;
+  font-style: italic;
+  text-align: center;
+}
+.bdr-thin {
+       border-top: 4px solid #eb1f27;
+    width: 80px;
+    margin-bottom: -11px;
+    margin-left: 380px;
+}
+</style>
