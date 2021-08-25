@@ -52,9 +52,11 @@ export default {
 </script>
 <style scoped>
 .featured {
-  font-size: 40px;
-  font-style: italic;
-  text-align: center;
+      margin-top: 95px;
+    font-size: 40px;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 88px;
 }
 .bdr-thin {
        border-top: 4px solid #eb1f27;

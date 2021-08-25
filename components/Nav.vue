@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="navbar flex text-white relative">
-      <header>
+      <!-- <header>
         <nav>
           <div class="logo">
             <Nuxt-link to="/">
@@ -32,7 +32,7 @@
             </div>
           </div>
         </nav>
-      </header>
+      </header> -->
 
       <!-- <div class="nav-item-center flex space-x-6 sm:space-x-20 p-5 mx-auto">
       <div class="name">
@@ -77,6 +77,22 @@
           muted
         ></video>
       </div> -->
+      <div class="scroll-down"></div>
+      <nav>
+        <div class="logo">
+          <img
+            src="http://www.olivergast.de/wp-content/themes/ZWANZIGEINS/images/logo-footer.png"
+            alt="logo"
+          />
+        </div>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">Produkte</a></li>
+          <li><a href="">Über uns</a></li>
+          <li><a href="">Kontakt</a></li>
+          <li><a href="">Impressum</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 </template>
@@ -84,80 +100,126 @@
 import Nav from "./Nav.vue";
 // import { mapGetters } from 'vuex'
 export default {
+  scrollTop: true,
   components: { Nav },
   name: "Nav",
-  computed: {}
+ methods: {
+    scroll() {
+      // Your scroll handling here
+      console.log(window.scrollTop)
+    }
+  },
+  beforeMount () {
+    window.addEventListener('scroll', this.nav);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.nav);
+  }
 };
 </script>
 <style scoped>
-* {
-  margin: 0px;
-  padding: 0px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.web{
-font-style: italic;
-    font-size: 19px;
-    margin-left: 66px;
-    margin-top: -65px;
-}
-.pad {
-  padding: 15px 20px;
-  display: inline;
-}
-.logo {
-  width: 159px;
-  font-style: italic;
-}
+/*  */
 body {
-  font-family: "Roboto", sans-serif;
-  background: #e2e2e2;
+  height: 1000px;
+  font-family: "Arimo", sans-serif;
+  font-weight: 700;
+  background: orange;
 }
 
-header {
-  width: 100%;
-  /* La medida queda a su criterio */
-  height: 60vh;
-  background: url(https://inspiredpixel.files.wordpress.com/2015/10/car-wheel-photographer-tim-wallace-commercial-photography-dymag-4.jpg)
-    center center / cover no-repeat;
-}
-
-header nav {
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), transparent);
-}
-
-header nav .logo {
-  font-size: 1.2em;
+.scroll-down {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -64px;
+  margin-top: -64px;
+  font-size: 128px;
   color: #fff;
-  padding: 30px;
 }
 
-header nav .put {
-  margin-left: 800px;
-  display: flex;
+.scroll-down p {
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #333;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+
+nav .logo {
+  position: relative;
+  float: left;
+  margin-right: 30px;
+  line-height: 0;
+  background: #222;
+}
+
+nav .logo:after,
+nav .logo:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background: #2a2a2a;
+  transform: skewx(10deg);
+}
+
+nav .logo:before {
+  right: -10px;
+  background: #2f2f2f;
+}
+
+nav .logo img {
+  height: 60px;
+  margin: 10px 40px 10px 20px;
+  transition: 0.3s;
+}
+
+nav ul {
+  margin: 0;
+}
+
+nav li {
+  display: inline-block;
+  line-height: 80px;
   list-style: none;
+  transition: 0.3s;
 }
 
-header nav .put {
-  padding-left: 15px;
+nav li a {
   display: block;
-  padding: 15px 20px;
-  text-decoration: none;
+  padding: 0 20px;
   color: #fff;
-  font-size: 14px;
+  text-decoration: none;
 }
 
+nav li:hover {
+  background: #555;
+}
+
+nav.mobile {
+  height: 50px;
+  font-weight: 400;
+}
+
+nav.mobile .logo img {
+  height: 30px;
+  margin: 10px 40px 10px 20px;
+}
+
+nav.mobile li {
+  line-height: 50px;
+}
 /* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 * {
