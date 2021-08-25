@@ -4,7 +4,18 @@
       <header>
         <nav>
           <div class="logo">
-            <Nuxt-link to="/"> Tyres&Alloy</Nuxt-link>
+            <Nuxt-link to="/">
+              <img
+                class="logo img-responsive replace-2xlogo"
+                src="https://i.pinimg.com/originals/17/47/a9/1747a9e5512a1fe42d9fb072c2a35cd7.png"
+              
+                alt=""
+              />
+              <div class="web">
+                Tyres&Alloy
+              </div>
+              </Nuxt-link>
+            
           </div>
           <div class="put">
             <div class="pad">
@@ -91,11 +102,18 @@ export default {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+.web{
+font-style: italic;
+    font-size: 19px;
+    margin-left: 66px;
+    margin-top: -65px;
+}
 .pad {
   padding: 15px 20px;
   display: inline;
 }
 .logo {
+  width: 159px;
   font-style: italic;
 }
 body {
