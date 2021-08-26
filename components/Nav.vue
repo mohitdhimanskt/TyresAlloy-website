@@ -80,18 +80,24 @@
       <div class="scroll-down"></div>
       <nav>
         <div class="logo">
+          <NuxtLink to="/">
           <img
-            src="http://www.olivergast.de/wp-content/themes/ZWANZIGEINS/images/logo-footer.png"
+            src="https://i.pinimg.com/originals/17/47/a9/1747a9e5512a1fe42d9fb072c2a35cd7.png" 
             alt="logo"
+            
           />
+          <div class="head">Tyres&Alloy</div>
+          </NuxtLink>
         </div>
+        <div class="page">
         <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">Produkte</a></li>
-          <li><a href="">Über uns</a></li>
-          <li><a href="">Kontakt</a></li>
-          <li><a href="">Impressum</a></li>
+          <li><NuxtLink to="/"> Home</NuxtLink></li>
+          <li><NuxtLink to="/">About</NuxtLink></li>
+          <li><NuxtLink to="/">Car</NuxtLink></li>
+          <li><NuxtLink to="/">Bike</NuxtLink></li>
+          <li><NuxtLink to="/">Gallery</NuxtLink></li>
         </ul>
+        </div>
       </nav>
     </div>
   </header>
@@ -135,7 +141,16 @@ body {
   font-size: 128px;
   color: #fff;
 }
-
+.head{
+      margin-left: 84px;
+    margin-top: -42px;
+    font-size: 33px;
+}
+.page{
+  text-align: center;
+    /* margin-left: -23px; */
+    margin-right: 282px;
+}
 .scroll-down p {
   margin: 0;
   font-size: 18px;

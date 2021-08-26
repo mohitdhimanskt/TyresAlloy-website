@@ -52,7 +52,7 @@ export default {
 </script>
 <style scoped>
 .featured {
-      margin-top: 95px;
+   margin-top: -48px;
     font-size: 40px;
     font-style: italic;
     text-align: center;
