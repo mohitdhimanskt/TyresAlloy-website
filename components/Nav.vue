@@ -91,11 +91,14 @@
         </div>
         <div class="page">
         <ul>
-          <li><NuxtLink to="/"> Home</NuxtLink></li>
-          <li><NuxtLink to="/">About</NuxtLink></li>
-          <li><NuxtLink to="/">Car</NuxtLink></li>
-          <li><NuxtLink to="/">Bike</NuxtLink></li>
-          <li><NuxtLink to="/">Gallery</NuxtLink></li>
+          <li v-for="page in pages" :key="page.id">
+            <nuxt-link
+              :to="{ name: 'page-slug', params: { slug: page.slug } }"
+              tag="a"
+            >
+              {{ page.Name }}
+            </nuxt-link>
+          </li>
         </ul>
         </div>
       </nav>
@@ -103,7 +106,7 @@
   </header>
 </template>
 <script>
-import Nav from "./Nav.vue";
+import Nav from '../components/Nav.vue'
 // import { mapGetters } from 'vuex'
 export default {
   scrollTop: true,
@@ -120,6 +123,11 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.nav);
+  },
+  data(){
+    return {
+      pages: []
+    }
   }
 };
 </script>
