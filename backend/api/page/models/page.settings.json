@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "Name": {
       "type": "string"
     },
     "image": {
@@ -32,7 +32,7 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "Name"
     },
     "pages": {
       "collection": "page",
@@ -41,6 +41,13 @@
     "page": {
       "model": "page",
       "via": "pages"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "draft",
+        "published"
+      ]
     }
   }
 }
