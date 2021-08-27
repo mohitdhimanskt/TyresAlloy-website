@@ -3,7 +3,7 @@
       <div class="uk-section">
         <div class="uk-container uk-container-large">
           <h1>{{ page.Name }}</h1>
-        
+        <p>{{page.description}}</p>
         </div>
       </div>
   </div>

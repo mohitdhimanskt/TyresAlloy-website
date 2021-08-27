@@ -91,7 +91,7 @@
         </div>
         <div class="page">
         <ul>
-          <li v-for="page in pages" :key="page.id">
+          <li v-for=" page in pages" :key="page.id">
             <nuxt-link
               :to="{ name: 'page-slug', params: { slug: page.slug } }"
               tag="a"
@@ -101,6 +101,7 @@
           </li>
         </ul>
         </div>
+        
       </nav>
     </div>
   </header>
@@ -109,26 +110,13 @@
 import Nav from '../components/Nav.vue'
 // import { mapGetters } from 'vuex'
 export default {
-  scrollTop: true,
-  components: { Nav },
-  name: "Nav",
- methods: {
-    scroll() {
-      // Your scroll handling here
-      console.log(window.scrollTop)
-    }
-  },
-  beforeMount () {
-    window.addEventListener('scroll', this.nav);
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.nav);
-  },
-  data(){
-    return {
-      pages: []
+ name: 'Nav',
+ props: {
+    pages: {
+      type: Array
     }
   }
+  
 };
 </script>
 <style scoped>

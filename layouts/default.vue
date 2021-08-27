@@ -1,6 +1,6 @@
 <template>
   <div>
-   <Nav></Nav> 
+   <Nav  :pages="pages"></Nav> 
   <HeroSlider></HeroSlider>
     <Nuxt></Nuxt>
 
@@ -12,20 +12,14 @@
 </template>
 
 <script>
-// Import your new Header component
-// import Header from "~/components/Header.vue";
-import Nav from "~/components/Nav.vue";
-import HeroSlider from "~/components/HeroSlider.vue";
-import Footer from "~/components/Footer.vue";
-import Ads from "../components/Ads.vue";
-
 export default {
-  components: {
-    Nav,
-    HeroSlider,
-    Ads,
-    Footer,
-    
-  }
+  async fetch() {
+    this.pages = await this.$strapi.find("pages");
+  },
+  data: function () {
+    return {
+      pages: [],
+    };
+  },
 };
 </script>
