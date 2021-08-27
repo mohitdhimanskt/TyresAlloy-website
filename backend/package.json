@@ -11,6 +11,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "@nuxtjs/auth": "^4.9.1",
     "knex": "0.21.18",
     "sqlite3": "5.0.0",
     "strapi": "3.6.7",
