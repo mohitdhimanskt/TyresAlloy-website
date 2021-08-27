@@ -141,6 +141,11 @@ export default {
   computed: {
     ...mapGetters(["isAuthenticated", "loggedInUser"])
   },
+  methods: {
+ async logout() {
+ await this.$auth.logout()
+ }
+ },
   mounted() {
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(
@@ -180,6 +185,14 @@ body {
 .buttons{
       margin-top: -97px;
     margin-right: 40px;
+}
+.navbar-brand {
+  font-style: italic;
+  font-size: 15px;
+
+}
+.uk-navbar-right{
+  margin-left: 868px;
 }
 .scroll-down {
   position: fixed;

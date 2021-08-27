@@ -75,6 +75,7 @@ export default {
  password: "",
  success: null,
  error: null,
+ middleware: "guest"
  };
  },
  methods: {
