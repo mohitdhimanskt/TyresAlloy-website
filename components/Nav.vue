@@ -81,42 +81,92 @@
       <nav>
         <div class="logo">
           <NuxtLink to="/">
-          <img
-            src="https://i.pinimg.com/originals/17/47/a9/1747a9e5512a1fe42d9fb072c2a35cd7.png" 
-            alt="logo"
-            
-          />
-          <div class="head">Tyres&Alloy</div>
+            <img
+              src="https://i.pinimg.com/originals/17/47/a9/1747a9e5512a1fe42d9fb072c2a35cd7.png"
+              alt="logo"
+            />
+            <div class="head">Tyres&Alloy</div>
           </NuxtLink>
         </div>
         <div class="page">
-        <ul>
-          <li v-for=" page in pages" :key="page.id">
-            <nuxt-link
-              :to="{ name: 'page-slug', params: { slug: page.slug } }"
-              tag="a"
-            >
-              {{ page.Name }}
-            </nuxt-link>
-          </li>
-        </ul>
+          <ul>
+            <li v-for="page in pages" :key="page.id">
+              <nuxt-link
+                :to="{ name: 'page-slug', params: { slug: page.slug } }"
+                tag="a"
+              >
+                {{ page.Name }}
+              </nuxt-link>
+            </li>
+          </ul>
         </div>
-        
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div v-if="isAuthenticated" class="navbar-start">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                {{ loggedInUser.username }}
+              </a>
+
+              <div class="navbar-dropdown">
+                <a class="navbar-item" href="/profile">My Profile</a>
+                <hr class="navbar-divider" />
+                <a class="navbar-item" @click="logout">Logout</a>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="!isAuthenticated" class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <nuxt-link class="button is-primary" to="/register">
+                  <strong>Register</strong>
+                </nuxt-link>
+                <nuxt-link class="button is-light" to="/login">
+                  Log in
+                </nuxt-link>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
 </template>
 <script>
-import Nav from '../components/Nav.vue'
+import { mapGetters } from "vuex";
+import Nav from "../components/Nav.vue";
 // import { mapGetters } from 'vuex'
 export default {
- name: 'Nav',
- props: {
+  name: "Nav",
+  computed: {
+    ...mapGetters(["isAuthenticated", "loggedInUser"])
+  },
+  mounted() {
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(
+      document.querySelectorAll(".navbar-burger"),
+      0
+    );
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+      // Add a click event on each of them
+      $navbarBurgers.forEach(el => {
+        el.addEventListener("click", () => {
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle("is-active");
+          $target.classList.toggle("is-active");
+        });
+      });
+    }
+  },
+  props: {
     pages: {
       type: Array
     }
   }
-  
 };
 </script>
 <style scoped>
@@ -127,7 +177,10 @@ body {
   font-weight: 700;
   background: orange;
 }
-
+.buttons{
+      margin-top: -97px;
+    margin-right: 40px;
+}
 .scroll-down {
   position: fixed;
   top: 50%;
@@ -137,15 +190,15 @@ body {
   font-size: 128px;
   color: #fff;
 }
-.head{
-      margin-left: 84px;
-    margin-top: -42px;
-    font-size: 33px;
+.head {
+  margin-left: 84px;
+  margin-top: -42px;
+  font-size: 33px;
 }
-.page{
+.page {
   text-align: center;
-    /* margin-left: -23px; */
-    margin-right: 282px;
+  /* margin-left: -23px; */
+  margin-right: 282px;
 }
 .scroll-down p {
   margin: 0;

@@ -30,9 +30,36 @@ export default {
     "@nuxtjs/strapi",
     "@nuxtjs/axios",
     "@nuxtjs/tailwindcss",  
-    "@nuxtjs/bulma"
+    "@nuxtjs/bulma",
+    '@nuxtjs/auth',
+    '@nuxtjs/dotenv'
   ],
-
+  axios: {
+    baseURL: process.env.API_AUTH_URL || 'http://localhost:1337'
+  },
+  /*
+ ** Auth module configuration
+ ** See https://auth.nuxtjs.org/schemes/local.html#options
+ */
+auth: {
+  strategies: {
+  local: {
+  endpoints: {
+  login: {
+  url: 'auth/local',
+  method: 'post',
+  propertyName: 'jwt'
+  },
+  user: {
+  url: 'users/me',
+  method: 'get',
+  propertyName: false
+  },
+  logout: false
+  }
+  }
+  }
+ },
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
