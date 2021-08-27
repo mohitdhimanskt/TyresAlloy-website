@@ -1,10 +1,10 @@
 <template>
   <div>
    <Nav  :pages="pages"></Nav> 
-  <HeroSlider></HeroSlider>
+  <!-- <HeroSlider></HeroSlider> -->
     <Nuxt></Nuxt>
-
-  <Ads class="mx-auto sm:m-10"></Ads>
+<!-- 
+  <Ads class="mx-auto sm:m-10"></Ads> -->
     <Footer></Footer> -->
 
     <!-- <Footer /> -->

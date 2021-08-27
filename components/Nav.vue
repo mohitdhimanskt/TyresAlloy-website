@@ -142,10 +142,10 @@ export default {
     ...mapGetters(["isAuthenticated", "loggedInUser"])
   },
   methods: {
- async logout() {
- await this.$auth.logout()
- }
- },
+    async logout() {
+      await this.$auth.logout();
+    }
+  },
   mounted() {
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(
@@ -182,17 +182,20 @@ body {
   font-weight: 700;
   background: orange;
 }
-.buttons{
-      margin-top: -97px;
-    margin-right: 40px;
+.buttons {
+  margin-top: -97px;
+  margin-right: 40px;
 }
 .navbar-brand {
   font-style: italic;
   font-size: 15px;
-
 }
-.uk-navbar-right{
+.uk-navbar-right {
   margin-left: 868px;
+}
+.navbar-link {
+  margin-left: 1387px;
+  margin-top: -79px;
 }
 .scroll-down {
   position: fixed;

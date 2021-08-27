@@ -39,12 +39,15 @@
 <script>
 import { getStrapiMedia } from "../utils/medias";
 export default {
+   middleware: "auth",
   name: "Featured",
+  
   props: {
     products: {
       type: Array
     }
   },
+  
   methods: {
     getStrapiMedia
   }
