@@ -51,7 +51,7 @@ export default {
   
   methods: {
     getStrapiMedia
-  }
+  } 
 };
 </script>
 <style scoped>
