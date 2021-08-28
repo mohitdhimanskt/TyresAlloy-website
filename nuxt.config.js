@@ -17,6 +17,7 @@ export default {
       { name: "format-detection", content: "telephone=no" }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -74,15 +75,24 @@ auth: {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    extend(config, ctx) {
-      config.module.rules.push({
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-         limit: 10000,
-        
-        }
-      })
-    }
-  }
+     /*
+     ** Run ESLint on save
+     */
+     extend(config, ctx) {
+      if (ctx.dev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
+        })
+      }
+    },
+    /*
+     ** Add vue-swal
+     */
+    vendor: ['vue-swal'],
+  },
+  
+  plugins: ['~/plugins/vue-swal']
 };

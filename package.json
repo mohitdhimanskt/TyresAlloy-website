@@ -29,7 +29,8 @@
     "strapi": "^3.6.7",
     "strapi-provider-email-console": "^0.0.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
-    "uikit": "^3.7.2"
+    "uikit": "^3.7.2",
+    "vue-swal": "^1.0.0"
   },
   "devDependencies": {}
 }
