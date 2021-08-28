@@ -25,10 +25,11 @@
           <p class="text-center m-3">
             {{ product.Name }}
           </p>
-          <NuxtLink 
+          <!-- <NuxtLink 
            :to="{ name: 'product-slug', params: { slug: product.slug } }"
         class="link"
-          >
+          > -->
+            <NuxtLink :to="`/products/${product.id}`">
             <button class="button--green mb-4">View Product</button>
           </NuxtLink>
         </div>

@@ -127,6 +127,14 @@
               </div>
             </div>
           </div>
+          <div class="cart fixed bottom-0 right-0 shadow-md m-3">
+            <p class="p-1 cartCount text-xs absolute top-0 right-0">
+              {{ getCart.length }}
+            </p>
+            <NuxtLink to="/cart">
+              <p class="pt-3 px-2">Cart</p>
+            </NuxtLink>
+          </div>
         </div>
       </nav>
     </div>
@@ -139,7 +147,7 @@ import Nav from "../components/Nav.vue";
 export default {
   name: "Nav",
   computed: {
-    ...mapGetters(["isAuthenticated", "loggedInUser"])
+    ...mapGetters(["isAuthenticated", "loggedInUser", 'getCart'])
   },
   methods: {
     async logout() {
@@ -182,6 +190,16 @@ body {
   font-weight: 700;
   background: orange;
 }
+.cartCount {
+  background: #000;
+  border-radius: 30%;
+}
+.cart {
+  background-color: rgb(163, 87, 129);
+  width: 3em;
+  height: 3em;
+  border-radius: 1.5em;
+}
 .buttons {
   margin-top: -97px;
   margin-right: 40px;
@@ -210,6 +228,7 @@ body {
   margin-left: 84px;
   margin-top: -42px;
   font-size: 33px;
+  font-style: italic;
 }
 .page {
   text-align: center;

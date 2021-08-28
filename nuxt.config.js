@@ -34,6 +34,10 @@ export default {
     '@nuxtjs/auth',
     '@nuxtjs/dotenv'
   ],
+  
+strapi: {
+  entities: ['products', 'orders', 'subscribers'],
+},
   axios: {
     baseURL: process.env.API_AUTH_URL || 'http://localhost:1337'
   },
