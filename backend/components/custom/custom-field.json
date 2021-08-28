@@ -2,15 +2,17 @@
   "collectionName": "components_custom_custom_fields",
   "info": {
     "name": "Custom_field",
-    "icon": "archway",
-    "description": ""
+    "icon": "check"
   },
   "options": {},
   "attributes": {
+    "title": {
+      "type": "string"
+    },
     "required": {
       "type": "boolean"
     },
-    "options": {
+    "option": {
       "type": "string"
     }
   }

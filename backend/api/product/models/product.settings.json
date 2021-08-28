@@ -47,6 +47,14 @@
     "slug": {
       "type": "uid",
       "targetField": "Name"
+    },
+    "Custom_field": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.custom-field"
+    },
+    "price": {
+      "type": "float"
     }
   }
 }
