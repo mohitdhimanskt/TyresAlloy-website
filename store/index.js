@@ -16,7 +16,7 @@ export const getters = {
     /* 
     return items from store
   */
-  wheeelscollectionProducts: (state) => state.wheelscollectionProducts,
+  wheelscollectionProducts: (state) => state.wheelscollectionProducts,
   featuredProducts: (state) => state.featuredProducts,
   carProducts: (state) => state.carProducts,
   bikeProducts: (state) => state.bikeProducts,
