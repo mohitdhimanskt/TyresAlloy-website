@@ -5,7 +5,7 @@
     <!-- <Nav class="sticky top-0" /> -->
     <div class="sm:w-11/12 md:w-4/5 mx-auto">
       <!-- <h1 class="m-5 font-bold text-lg">All Products</h1> -->
-      <Featured class="mx-auto" :data="featuredProducts"/>
+      <Featured class="mx-auto" :products="featuredProducts"/>
     </div>
     <Ads class="mx-auto sm:m-10"></Ads>
     <!-- <Ads class="mx-auto sm:m-10"></Ads> -->

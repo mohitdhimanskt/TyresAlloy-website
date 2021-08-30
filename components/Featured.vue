@@ -10,7 +10,7 @@
       class="sm:grid sm:grid-cols-3 md:grid-cols-3 gap-6 justify-center items-center"
     >
       <div
-        v-for="(product, i) in data"
+        v-for="(product, i) in products"
         :key="i"
         class="flex flex-col max-h-screen shadow-xl m-8 sm:m-2 md:m-4 justify-center items-center"
       >
@@ -43,7 +43,7 @@ export default {
    middleware: "auth",
   name: "Featured",
   
-  props: ['data'],
+  props: ['products'],
 
   
   methods: {
