@@ -59,6 +59,9 @@
     "products": {
       "collection": "product",
       "via": "product"
+    },
+    "quantity": {
+      "type": "integer"
     }
   }
 }
