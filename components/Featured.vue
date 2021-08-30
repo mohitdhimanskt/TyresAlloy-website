@@ -10,8 +10,8 @@
       class="sm:grid sm:grid-cols-3 md:grid-cols-3 gap-6 justify-center items-center"
     >
       <div
-        v-for="(product, i) in products"
-        :key="i"
+        v-for="product in products"
+        :key="product"
         class="flex flex-col max-h-screen shadow-xl m-8 sm:m-2 md:m-4 justify-center items-center"
       >
         <div class="img-wrapper h-3/4 mx-auto max-h-screen">
@@ -24,6 +24,7 @@
         <div>
           <p class="text-center m-3">
             {{ product.Name }}
+             
           </p>
           <NuxtLink 
            :to="{ name: 'product-slug', params: { slug: product.slug } }"
