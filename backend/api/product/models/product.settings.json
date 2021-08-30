@@ -31,10 +31,6 @@
       "required": true,
       "pluginOptions": {}
     },
-    "categories": {
-      "collection": "category",
-      "via": "products"
-    },
     "status": {
       "type": "enumeration",
       "enum": [
@@ -55,6 +51,14 @@
     },
     "price": {
       "type": "float"
+    },
+    "product": {
+      "model": "product",
+      "via": "products"
+    },
+    "products": {
+      "collection": "product",
+      "via": "product"
     }
   }
 }
