@@ -9,7 +9,8 @@
         :style="{ display: active_card.id != card.id ? 'none' : '' }"
       >
         <div class="curd">
-          <img :src="card.img" />
+       
+          <img :src="getStrapiMedia(card.img)"  />
         </div>
       </div>
       <div class="dots">
@@ -26,6 +27,7 @@
 </template>
 
 <script>
+import { getStrapiMedia } from "../utils/medias";
 export default {
   name: "HeroSlider",
   created() {
@@ -45,7 +47,7 @@ export default {
       cards: [
         {
           img:
-            "https://www.platiindia.com/images/BannerImages/banner-4040211626252828085348.jpg",
+           "	https://www.platiindia.com/images/BannerImages/banner-4040211626252828085348.jpg",
           id: 1
         },
         {
@@ -55,7 +57,7 @@ export default {
         },
         {
           img:
-            "https://www.platiindia.com/images/BannerImages/banner-4040211626252828085348.jpg",
+            "	https://www.platiindia.com/images/BannerImages/banner-4040211626252828085348.jpg",
           id: 3
         }
       ],
@@ -65,7 +67,8 @@ export default {
   methods: {
     activate(id) {
       this.active_slide = id;
-    }
+    },
+     getStrapiMedia
   },
   computed: {
     active_card: function() {
@@ -103,7 +106,6 @@ export default {
   background: lightgray;
   border-radius: 8px;
 }
-
 .dot {
   width: 8px;
   height: 8px;
