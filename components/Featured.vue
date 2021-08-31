@@ -39,6 +39,7 @@
   </div>
 </template>
 <script>
+import moment from "moment";
 import { getStrapiMedia } from "../utils/medias";
 export default {
    middleware: "auth",
@@ -48,6 +49,7 @@ export default {
 
   
   methods: {
+    moment,
     getStrapiMedia
   } 
 };

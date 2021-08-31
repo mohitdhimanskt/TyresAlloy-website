@@ -15,11 +15,11 @@
           <span>Price:$ </span>{{ product.price | formatPrice }}
         </p>
         <span class="my-2">Quantity: </span>
-        <!-- <input
-          v-model="cartItem.quantity"
+        <input
+          v-model="cartItems.quantity"
           class="p-3 border border-solid border-t-0 border-l-0 border-r-0 border-b-1"
           type="number"
-        /> -->
+        />
         <p class="my-2 text-sm">{{ product.description }}</p>
         <button
           class="button -green my-2"
@@ -42,7 +42,7 @@ import { mapActions } from "vuex";
 export default {
   name: "product",
   props: {
-    buttons: {
+    product: {
       type: Array
     }
   },
@@ -59,13 +59,13 @@ export default {
   data() {
     return {
       apiUrl: process.env.strapiBaseUri,
-      //  cartItem: {
-      //   //  id: this.product.id,
-      //   Name: this.product.Name,
-      //   url: this.product.image.url,
-      //   price: this.product.price,
-      //   quantity: 1,
-      // },
+      cartItems:[ {
+        id: this.product.id,
+        name: this.product.Name,
+        url: this.product.image.url,
+        price: this.product.price,
+        quantity: 1
+      }]
     };
   },
   // methods: {
@@ -124,7 +124,7 @@ export default {
   background-color: rgba(92, 180, 89, 0.884);
   padding: 12px 45px;
 }
-.h1{
+.h1 {
   font-style: italic;
 }
 </style>

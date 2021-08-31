@@ -5,19 +5,19 @@
       <h1 class="m-5 font-bold text-lg">Your Cart</h1>
     </div>
     <div
-      v-for="product in getCart"
-      :key="product.id"
+      v-for="item in getCart"
+      :key="item.id"
       class="w-4/5 sm:w-1/2 flex items-center space-x-3 mx-auto shadow-lg m-5 p-3"
     >
       <div>
-        <img class="h-24" :src="`${product.url}`" alt="" />
+        <img class="h-24" :src="`${item.url}`" alt="" />
       </div>
       <div>
         <p>
-          {{ product.Name }}
+          {{ item.name }}
         </p>
         <p>
-          {{ product.quantity | formatQuantity }}
+          {{ item.quantity | formatQuantity }}
         </p>
         <button class="button--delete" @click="deleteCartItem(item.id)">
           Delete
@@ -28,13 +28,13 @@
       <p>
         <span>Total: </span> {{ formatCartTotal(getCartTotal) | formatPrice }}
       </p>
-      <!-- <button
+      <button
         v-show="getCartTotal > 0"
         class="button--green mx-auto"
         @click="handleSubmit"
       >
         checkout
-      </button> -->
+      </button>
     </div>
     <Ads class="mx-auto sm:m-10" />
     <Footer />
@@ -50,9 +50,9 @@ export default {
   computed: {
     ...mapGetters(['getCart', 'getCartTotal']),
   },
-//   mounted() {
-//     this.displayMessage()
-//   },
+  mounted() {
+    this.displayMessage()
+  },
   filters: {
     formatPrice(price) {
       return `$${price}`
