@@ -25,9 +25,9 @@
       </div>
     </div>
     <div class="w-4/5 sm:w-1/2 mb-2 mx-auto">
-      <p>
+      <!-- <p>
         <span>Total: </span> {{ formatCartTotal(getCartTotal) | formatPrice }}
-      </p>
+      </p> -->
       <button
         v-show="getCartTotal > 0"
         class="button--green mx-auto"
@@ -37,7 +37,7 @@
       </button>
     </div>
     <Ads class="mx-auto sm:m-10" />
-    <Footer />
+
   </div>
 </template>
 <script>
@@ -50,9 +50,9 @@ export default {
   computed: {
     ...mapGetters(['getCart', 'getCartTotal']),
   },
-  mounted() {
-    this.displayMessage()
-  },
+  // mounted() {
+  //   this.displayMessage()
+  // },
   filters: {
     formatPrice(price) {
       return `$${price}`
