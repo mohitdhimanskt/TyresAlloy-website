@@ -25,9 +25,10 @@
       </div>
     </div>
     <div class="w-4/5 sm:w-1/2 mb-2 mx-auto">
-      <!-- <p>
-        <span>Total: </span> {{ formatCartTotal(getCartTotal) | formatPrice }}
-      </p> -->
+      <p>
+        <span>Total:$ </span> 
+        <!-- {{ formatCartTotal(getCartTotal) | formatPrice }} -->
+      </p>
       <button
         v-show="getCartTotal > 0"
         class="button--green mx-auto"

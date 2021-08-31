@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1 data-v-60223acd="" class="font-bold m-5 md:mx-10">
+    <h2 data-v-60223acd="" class="font-bold m-5 md:mx-10">
       {{ product.Name }}
-    </h1>
+    </h2>
     <div
       class="sm:grid grid-cols-2 justify-center shadow-lg items-center gap-3 m-5 md:m-5"
     >
@@ -16,7 +16,7 @@
         </p>
         <span class="my-2">Quantity: </span>
         <!-- <input
-          v-model="cartItems.quantity"
+          v-model="cartItem.quantity"
           class="p-3 border border-solid border-t-0 border-l-0 border-r-0 border-b-1"
           type="number"
         /> -->
@@ -32,6 +32,17 @@
         </button>
       </div>
     </div>
+    <div class="fit">
+   <div class="bdr-thin"></div>
+  <h1>Wheels Fitment Gallery</h1>
+    </div>
+	<div class="container"
+   v-for="image in product.images"
+          :key="image.id"
+  >
+		<img :src="getStrapiMedia(image.url)" />
+
+	</div>
   </div>
 </template>
 
@@ -59,16 +70,16 @@ export default {
   // data() {
   //   return {
   //     apiUrl: process.env.strapiBaseUri,
-  //      cartItems: {
-  //        id: this.product.id,
-  //       name: this.product.name,
-  //       url: this.product.image.url,
-  //       price: this.product.price,
-  //       quantity: 1,
-  //     },
+  //     cartItem: {
+  //       id: this.products.id,
+  //       name: this.products.name,
+  //       url: this.products.image.url,
+  //       price: this.products.price,
+  //       quantity: 1
+  //     }
   //   };
   // },
- 
+
   methods: {
     ...mapActions(["addItemToCart"]),
     displayMessage() {
@@ -110,7 +121,41 @@ export default {
   background-color: rgba(92, 180, 89, 0.884);
   padding: 12px 45px;
 }
-.h1 {
+.h2 {
   font-style: italic;
 }
+.fit {
+   margin-top: 0px;
+    font-size: 40px;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 26px;
+}
+.bdr-thin {
+       border-top: 4px solid #eb1f27;
+    width: 80px;
+    margin-bottom: -11px;
+    margin-left: 534px;
+}
+
+.container {
+	width: 30%;
+	float: left;
+	margin: 1.66%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.2rem;
+  justify-content: space-between;
+}
+
+.container img {
+  max-height: 300px;
+  flex-grow: 1;
+  object-fit: cover;
+  margin: 0.2rem;
+}
+
 </style>
