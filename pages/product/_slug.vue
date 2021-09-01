@@ -1,48 +1,48 @@
 <template>
-  <div>
-    <h2 data-v-60223acd="" class="font-bold m-5 md:mx-10">
-      {{ product.Name }}
-    </h2>
-    <div
-      class="sm:grid grid-cols-2 justify-center shadow-lg items-center gap-3 m-5 md:m-5"
-    >
-      <div>
-        <img class="max-h-screen" :src="getStrapiMedia(product.image.url)" />
-      </div>
-      <!-- <div>{{ product.Name }}</div> -->
-      <div class="sm:m-3 md:m-5 p-3 sm:p-0">
-        <p class="my-2">
-          <span>Price:$ </span>{{ product.price | formatPrice }}
-        </p>
-        <span class="my-2">Quantity: </span>
-        <!-- <input
+  <div class="top fo page">
+    <div class="text">
+      <h2 data-v-60223acd="" class="font-bold m-5 md:mx-10">
+        {{ product.Name }}
+      </h2>
+    </div>
+    <div class="great">
+      <div
+        class="sm:grid grid-cols-2 justify-center shadow-lg items-center gap-3 m-5 md:m-5"
+      >
+        <div>
+          <img class="max-h-screen" :src="getStrapiMedia(product.image.url)" />
+        </div>
+        <!-- <div>{{ product.Name }}</div> -->
+        <div class="sm:m-3 md:m-5 p-3 sm:p-0">
+          <p class="my-2">
+            <span>Price:$ </span>{{ product.price | formatPrice }}
+          </p>
+          <span class="my-2">Quantity: </span>
+          <!-- <input
           v-model="cartItem.quantity"
           class="p-3 border border-solid border-t-0 border-l-0 border-r-0 border-b-1"
           type="number"
         /> -->
-        <p class="my-2 text-sm">{{ product.description }}</p>
-        <button
-          class="button -green my-2"
-          @click="
-            addItemToCart(cartItem);
-            displayMessage();
-          "
-        >
-          Add to Cart
-        </button>
+          <p class="my-2 text-sm">{{ product.description }}</p>
+          <button
+            class="button -green my-2"
+            @click="
+              addItemToCart(cartItem);
+              displayMessage();
+            "
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+      <div class="fit">
+        <div class="bdr-thin"></div>
+        <h1>Wheels Fitment Gallery</h1>
+      </div>
+      <div class="container" v-for="image in product.images" :key="image.id">
+        <img :src="getStrapiMedia(image.url)" />
       </div>
     </div>
-    <div class="fit">
-   <div class="bdr-thin"></div>
-  <h1>Wheels Fitment Gallery</h1>
-    </div>
-	<div class="container"
-   v-for="image in product.images"
-          :key="image.id"
-  >
-		<img :src="getStrapiMedia(image.url)" />
-
-	</div>
   </div>
 </template>
 
@@ -121,27 +121,28 @@ export default {
   background-color: rgba(92, 180, 89, 0.884);
   padding: 12px 45px;
 }
+
 .h2 {
   font-style: italic;
 }
 .fit {
-   margin-top: 0px;
-    font-size: 40px;
-    font-style: italic;
-    text-align: center;
-    margin-bottom: 26px;
+  margin-top: 0px;
+  font-size: 40px;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 26px;
 }
 .bdr-thin {
-       border-top: 4px solid #eb1f27;
-    width: 80px;
-    margin-bottom: -11px;
-    margin-left: 534px;
+  border-top: 4px solid #eb1f27;
+  width: 80px;
+  margin-bottom: -11px;
+  margin-left: 534px;
 }
 
 .container {
-	width: 30%;
-	float: left;
-	margin: 1.66%;
+  width: 30%;
+  float: left;
+  margin: 1.66%;
 }
 
 .container {
@@ -157,5 +158,4 @@ export default {
   object-fit: cover;
   margin: 0.2rem;
 }
-
 </style>

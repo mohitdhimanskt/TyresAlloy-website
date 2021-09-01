@@ -2,7 +2,7 @@
   <footer class="new_footer_area bg_color">
     <div class="new_footer_top">
       <div class="bike">
-        <div class="row">
+        <div class="rowfit">
           <div class="get">
           <div class="col-lg-3 col-md-6 m-12">
             <div
@@ -148,6 +148,7 @@ body {
 
 .new_footer_area {
   background: #fbfbfd;
+    
 }
 
 .get{
@@ -165,6 +166,9 @@ body {
 .request {
   margin-left: 1150px;
     margin-top: -256px;
+}
+.rowfit{
+margin-top: -145px;
 }
 .new_footer_top {
   padding: 120px 0px 270px;
