@@ -1,11 +1,11 @@
 <template>
-  <div class="top fo page">
+  <div class="testing"> 
     <div class="text">
       <h2 data-v-60223acd="" class="font-bold m-5 md:mx-10">
         {{ product.Name }}
       </h2>
     </div>
-    <div class="great">
+    <div >
       <div
         class="sm:grid grid-cols-2 justify-center shadow-lg items-center gap-3 m-5 md:m-5"
       >
@@ -27,7 +27,7 @@
           <button
             class="button -green my-2"
             @click="
-              addItemToCart(cartItem);
+              addItemToCart(product);
               displayMessage();
             "
           >
@@ -35,14 +35,20 @@
           </button>
         </div>
       </div>
-      <div class="fit">
-        <div class="bdr-thin"></div>
-        <h1>Wheels Fitment Gallery</h1>
-      </div>
-      <div class="container" v-for="image in product.images" :key="image.id">
-        <img :src="getStrapiMedia(image.url)" />
-      </div>
+  
+
+    <div class="fit">
+      <div class="bdr-thin"></div>
+      <h1>Wheels Fitment Gallery</h1>
+    
+    <div class="alto">
+    <div class="container  shadow-lg" v-for="image in product.images" :key="image.id">
+      <img :src="getStrapiMedia(image.url)" />
     </div>
+    </div>
+    </div>
+   
+  </div>
   </div>
 </template>
 
@@ -53,7 +59,7 @@ import { mapActions } from "vuex";
 export default {
   name: "product",
   props: {
-    buttons: {
+    products: {
       type: Array
     }
   },
@@ -67,18 +73,18 @@ export default {
       // global: await $strapi.find("global"),
     };
   },
-  // data() {
-  //   return {
-  //     apiUrl: process.env.strapiBaseUri,
-  //     cartItem: {
-  //       id: this.products.id,
-  //       name: this.products.name,
-  //       url: this.products.image.url,
-  //       price: this.products.price,
-  //       quantity: 1
-  //     }
-  //   };
-  // },
+  data() {
+    return {
+      apiUrl: process.env.strapiBaseUri,
+      cartItem: {
+        // id: this.product.id,
+        // name: this.product.Name,
+        // url: this.product.image.url,
+        // price: this.product.price,
+        // quantity: 1
+      }
+    };
+  },
 
   methods: {
     ...mapActions(["addItemToCart"]),
@@ -122,8 +128,9 @@ export default {
   padding: 12px 45px;
 }
 
-.h2 {
+.text {
   font-style: italic;
+  font-size: 30px;
 }
 .fit {
   margin-top: 0px;

@@ -4,6 +4,7 @@ export const state = () => ({
     carProducts: [],
     bikeProducts: [],
     cartItems: [],
+
   })
 export const getters = {
     isAuthenticated(state) {

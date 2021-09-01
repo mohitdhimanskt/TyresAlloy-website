@@ -10,11 +10,11 @@
       class="w-4/5 sm:w-1/2 flex items-center space-x-3 mx-auto shadow-lg m-5 p-3"
     >
       <div>
-        <img class="h-24" :src="`${item.url}`" alt="" />
+        <img class="h-24" :src="getStrapiMedia(item.image.url)" alt="" />
       </div>
       <div>
         <p>
-          {{ item.name }}
+          {{ item.Name }}
         </p>
         <p>
           {{ item.quantity | formatQuantity }}
@@ -26,7 +26,7 @@
     </div>
     <div class="w-4/5 sm:w-1/2 mb-2 mx-auto">
       <p>
-        <span>Total:$ </span> 
+        <span>Total:$ </span>
         <!-- {{ formatCartTotal(getCartTotal) | formatPrice }} -->
       </p>
       <button
@@ -38,31 +38,59 @@
       </button>
     </div>
     <Ads class="mx-auto sm:m-10" />
-
   </div>
 </template>
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { getStrapiMedia } from "../utils/medias";
+import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
-    return {
-    }
+    return {};
   },
   computed: {
-    ...mapGetters(['getCart', 'getCartTotal']),
+    ...mapGetters(["getCart", "getCartTotal"])
   },
   // mounted() {
   //   this.displayMessage()
   // },
   filters: {
     formatPrice(price) {
-      return `$${price}`
+      return `$${price}`;
     },
     formatQuantity(num) {
-      const qtyNum = num === 1 ? `${num} unit` : `${num} units`
-      return qtyNum
-    },
+      const qtyNum = num === 1 ? `${num} unit` : `${num} units`;
+      return qtyNum;
+    }
   },
-}
+  methods: {
+    getStrapiMedia,
+    deleteCartItem(){
+    console.log('Hello');
+    },
+  }
+};
 </script>
-<style scoped></style>
+<style scoped>
+.button--delete {
+    display: inline-block;
+    border: 1px solid #35495e;
+    padding: 5px;
+}
+.button--delete, .button--grey:hover {
+    color: #fff;
+    background-color: #35495e;
+}
+.button--green:hover {
+    color: #fff;
+    background-color: #3b8070;
+}
+.button--green {
+    border: 1px solid #3b8070;
+    
+}
+.button--green, .button--hero {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 30px;
+}
+</style>
