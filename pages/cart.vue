@@ -32,7 +32,7 @@
       <button
         v-show="getCartTotal > 0"
         class="button--green mx-auto"
-        @click="handleSubmit"
+        @click="handleSubmit(e)"
       >
         checkout
       </button>
@@ -46,14 +46,22 @@ import { getStrapiMedia } from "../utils/medias";
 import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
-    return {};
+    return {
+      productItems: {},
+      session: {},
+      stripe: {},
+      stripePromise: {}
+    };
   },
   computed: {
     id() {
-      return this.$route.params.id
+      return this.$route.params.id;
     },
     ...mapGetters(["getCart", "getCartTotal"])
   },
+  //  numberOfItems() {
+  //     return this.$store.getters['cart/numberOfItems']
+  //   },
   mounted() {
     this.displayMessage();
   },
@@ -75,16 +83,71 @@ export default {
       return `${price}`;
     },
     formatQuantity(num) {
-      const qtyNum = num === 1 ? `${num} unit` : `${num} units`;
-      return qtyNum;
+      const quantityNum = num === 1 ? `${num} unit` : `${num} units`;
+      return quantityNum;
     },
     displayMessage() {
       console.log("Manu");
     },
     ...mapMutations({
       removeFromCart: "cart/remove"
-    })
-  }
+    }),
+    numberOfItems() {
+      return this.$store.getters["cart/numberOfItems"];
+    }
+  },
+  async handleSubmit(e) {
+    e.preventDefault();
+    const response = await this.$http.$post(`http://localhost:1337/orders`, {
+      cartDetail: this.getCart,
+      cartTotal: this.getCartTotal.toFixed(2)
+    });
+    this.$swal({
+      title: "Please wait",
+      text: "redirecting you to stripe, click ok",
+      icon: "success",
+      button: "Ok"
+    });
+
+    const stripePromise = loadStripe(
+      "sk_test_51IgTE6SEtraFFPFEOWiZ2oMZcksbag4It9XDeV62kdeg4qoEH8Kl0SSSksaiNwP20sa5UwhCQQ4BhCtVyp8yMlN000cM3djDLS"
+    );
+    const session = response;
+    const stripe = await stripePromise;
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id
+    });
+    console.log(response);
+    if (result.error) {
+      this.$nuxt.context.error(result.error.message);
+    }
+  },
+
+  displayMessage() {
+    if (this.$route.query.success) {
+      this.$swal({
+        title: "Order placed!",
+        text: "Thanks for placing your orders",
+        icon: "success",
+        button: "Ok"
+      });
+    } else if (this.$route.query.canceled) {
+      this.$swal({
+        title: "Order canceled!",
+        text: "continue to shop around and checkout when you're ready.",
+        icon: "warning",
+        button: "Ok"
+      });
+    }
+  },
+  formatCartTotal(num) {
+    if (num > 0) {
+      return num.toFixed(2);
+    } else {
+      return num;
+    }
+  },
+  ...mapActions(["deleteCartItem"])
 };
 </script>
 <style scoped>
