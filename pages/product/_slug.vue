@@ -18,11 +18,11 @@
             <span>Price:$ </span>{{ product.price | formatPrice }}
           </p>
           <span class="my-2">Quantity: </span>
-          <!-- <input
+          <input
           v-model="cartItem.quantity"
           class="p-3 border border-solid border-t-0 border-l-0 border-r-0 border-b-1"
           type="number"
-        /> -->
+        />
           <p class="my-2 text-sm">{{ product.description }}</p>
           <button
             class="button -green my-2"
@@ -81,7 +81,7 @@ export default {
         // name: this.product.Name,
         // url: this.product.image.url,
         // price: this.product.price,
-        // quantity: 1
+        quantity: 1
       }
     };
   },

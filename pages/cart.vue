@@ -19,15 +19,15 @@
         <p>
           {{ item.quantity | formatQuantity }}
         </p>
-        <button class="button--delete" @click="deleteCartItem(item.id)">
+        <button class="button--delete" @click="removeFromCart">
           Delete
         </button>
       </div>
     </div>
     <div class="w-4/5 sm:w-1/2 mb-2 mx-auto">
       <p>
-        <span>Total:$ </span>
-        <!-- {{ formatCartTotal(getCartTotal) | formatPrice }} -->
+        <span>Total: </span>
+        {{ formatCartTotal(getCartTotal) | formatPrice }}
       </p>
       <button
         v-show="getCartTotal > 0"
@@ -41,6 +41,7 @@
   </div>
 </template>
 <script>
+import { mapMutations } from "vuex";
 import { getStrapiMedia } from "../utils/medias";
 import { mapGetters, mapActions } from "vuex";
 export default {
@@ -48,11 +49,14 @@ export default {
     return {};
   },
   computed: {
+    id() {
+      return this.$route.params.id
+    },
     ...mapGetters(["getCart", "getCartTotal"])
   },
-  // mounted() {
-  //   this.displayMessage()
-  // },
+  mounted() {
+    this.displayMessage();
+  },
   filters: {
     formatPrice(price) {
       return `$${price}`;
@@ -64,33 +68,47 @@ export default {
   },
   methods: {
     getStrapiMedia,
-    deleteCartItem(){
-    console.log('Hello');
+    deleteCartItem() {
+      console.log("Hello");
     },
+    formatCartTotal(price) {
+      return `${price}`;
+    },
+    formatQuantity(num) {
+      const qtyNum = num === 1 ? `${num} unit` : `${num} units`;
+      return qtyNum;
+    },
+    displayMessage() {
+      console.log("Manu");
+    },
+    ...mapMutations({
+      removeFromCart: "cart/remove"
+    })
   }
 };
 </script>
 <style scoped>
 .button--delete {
-    display: inline-block;
-    border: 1px solid #35495e;
-    padding: 5px;
+  display: inline-block;
+  border: 1px solid #35495e;
+  padding: 5px;
 }
-.button--delete, .button--grey:hover {
-    color: #fff;
-    background-color: #35495e;
+.button--delete,
+.button--grey:hover {
+  color: #fff;
+  background-color: #35495e;
 }
 .button--green:hover {
-    color: #fff;
-    background-color: #3b8070;
+  color: #fff;
+  background-color: #3b8070;
 }
 .button--green {
-    border: 1px solid #3b8070;
-    
+  border: 1px solid #3b8070;
 }
-.button--green, .button--hero {
-    display: inline-block;
-    text-decoration: none;
-    padding: 10px 30px;
+.button--green,
+.button--hero {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 30px;
 }
 </style>
