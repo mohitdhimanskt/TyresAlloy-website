@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "item": {
-      "type": "json"
-    },
     "Name": {
       "type": "string"
     },
@@ -29,6 +26,17 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "TotalAmount": {
+      "type": "integer"
+    },
+    "item": {
+      "type": "json"
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "orders"
     }
   }
 }
