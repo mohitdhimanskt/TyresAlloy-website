@@ -1,0 +1,4 @@
+HOST=0.0.0.0
+PORT=1337
+cp .env.example .env
+STRIPE_KEY=<sk_test_51IgTE6SEtraFFPFEOWiZ2oMZcksbag4It9XDeV62kdeg4qoEH8Kl0SSSksaiNwP20sa5UwhCQQ4BhCtVyp8yMlN000cM3djDLS>
