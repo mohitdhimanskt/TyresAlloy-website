@@ -32,7 +32,7 @@
       <button
         v-show="getCartTotal > 0"
         class="button--green mx-auto"
-        @click="handleSubmit(e)"
+        @click="handleSubmit"
       >
         checkout
       </button>
@@ -86,19 +86,19 @@ export default {
       const quantityNum = num === 1 ? `${num} unit` : `${num} units`;
       return quantityNum;
     },
-    displayMessage() {
-      console.log("Manu");
-    },
+    // displayMessage() {
+    //   console.log("Manu");
+    // },
     ...mapMutations({
       removeFromCart: "cart/remove"
     }),
     numberOfItems() {
       return this.$store.getters["cart/numberOfItems"];
-    }
-  },
+    },
+  
   async handleSubmit(e) {
     e.preventDefault();
-    const response = await this.$http.$post(`http://localhost:1337/orders`, {
+    const response = await this.http.post(`http://localhost:1337/orders`, {
       cartDetail: this.getCart,
       cartTotal: this.getCartTotal.toFixed(2)
     });
@@ -148,6 +148,7 @@ export default {
     }
   },
   ...mapActions(["deleteCartItem"])
+  }
 };
 </script>
 <style scoped>
